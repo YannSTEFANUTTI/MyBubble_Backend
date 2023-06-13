@@ -12,6 +12,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
 import java.util.*;
 
 @Data
@@ -26,7 +27,6 @@ public class User implements UserDetails {
     private Long id;
     private String firstname;
     private String lastname;
-    @JsonIgnore
     private String email;
     @JsonIgnore
     private String password;
@@ -45,7 +45,6 @@ public class User implements UserDetails {
     @JoinColumn(name = "user_id", referencedColumnName = "id") /* Clé étrangère */
     @JsonIgnoreProperties("user")
     private Set<Bubble> bookingList = new HashSet<>(); /* [] */
-
 
 
     @Override

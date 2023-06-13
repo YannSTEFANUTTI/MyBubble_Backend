@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/bubble")
+@RequestMapping("/api/v1/bubbles")
 public class BubbleController {
 
     private final BubbleService bubbleService;

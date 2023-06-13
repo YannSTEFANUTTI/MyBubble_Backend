@@ -14,6 +14,7 @@ import manager.mybubble.User.User;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -21,7 +22,6 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
-@RestController
 public class Bubble {
 
     @Id
@@ -37,7 +37,7 @@ public class Bubble {
     private String resume;
     private String postalCode;
     private String city;
-    private String adress;
+    private String address;
     private Number longitude;
     private Number latitude;
     //private RentPictures[] pictures;
@@ -48,22 +48,22 @@ public class Bubble {
     private String accountFirstname;
     private String accountLastname;
 
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    @JoinColumn(name = "bubble_id", referencedColumnName = "id") /* Clé étrangère */
-    @JsonIgnoreProperties("bubble")
-    private Set<RentActivities> rentActivitiesList = new HashSet<>();
+    //@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    //@JoinColumn(name = "bubble_id", referencedColumnName = "id") /* Clé étrangère */
+    //@JsonIgnoreProperties("bubble")
+    //private List<RentActivities> activities;
 
     @OneToOne
     @JsonIgnoreProperties("bubble")
-    private RentBonus rentBonus;
+    private RentBonus bonus;
 
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    @JsonIgnoreProperties("rentDateList")
-    private Set<RentDate> rentDateList = new HashSet<>();
+    @JsonIgnoreProperties("date")
+    private List<RentDate> dates;
 
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    @JsonIgnoreProperties("rentPicturesList")
-    private Set<RentPictures> rentPicturesList = new HashSet<>();
+    @JsonIgnoreProperties("picture")
+    private List<RentPictures> pictures;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     @JsonIgnoreProperties("userList")

@@ -5,6 +5,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -32,12 +33,23 @@ public class UserService {
     public void delete(Long id) {userRepository.deleteById(id);
     }
 
+    public User login(String email, String password) {
+        User exampleUser = new User();
+        exampleUser.setEmail(email);
+        exampleUser.setPassword(password);
+
+        Example<User> example = Example.of(exampleUser);
+        Optional<User> userOptional = userRepository.findOne(example);
+        return userOptional.orElse(null);
+    }
+
+
     //public User login(String email, String password) {
-    //  User exampleUser = new User();
+      //User exampleUser = new User();
     //exampleUser.setEmail(email);
     //exampleUser.setPassword(password);
 
     //Example<User> example = Example.of(exampleUser);
     //return userRepository.findOne(example);
-    // }
+     //}
 }
