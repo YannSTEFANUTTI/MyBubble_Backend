@@ -15,7 +15,7 @@ public class RentActivitiesService {
     }
 
     public RentActivities getById(Long id) {
-        return (RentActivities) rentActivitiesRepository.findById(id)
+        return rentActivitiesRepository.findById(id)
                 .orElseThrow(()-> new RuntimeException(("RentActivity"+ id + "not found")));
     }
 
@@ -24,7 +24,7 @@ public class RentActivitiesService {
     }
 
     public RentActivities update(RentActivities rentActivities, Long id) {
-        RentActivities foundRentActivities = (RentActivities) getById(id);
+        RentActivities foundRentActivities = getById(id);
         return rentActivitiesRepository.save(foundRentActivities);
     }
 

@@ -8,8 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import manager.mybubble.Bubble.Bubble;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
 
 @Entity
 @AllArgsConstructor
@@ -21,12 +19,11 @@ public class RentActivities {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String title;
     private Long pictoId;
     private Boolean isSharedActivity;
 
     @ManyToOne
-    @JsonIgnoreProperties("rentActivitiesList")
+    @JsonIgnoreProperties("activities")
     private Bubble bubble;
 }

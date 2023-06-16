@@ -23,7 +23,7 @@ public class RentBonus {
     private String bonus;
     private Boolean isBonus;
 
-    @OneToOne(mappedBy = "bonus")
-    @JsonIgnoreProperties("bonus")
-    private Bubble bubble;
+    //@OneToOne(mappedBy = "bonus")
+    //@JsonIgnoreProperties("bonus")
+    //private Bubble bubble;
 }

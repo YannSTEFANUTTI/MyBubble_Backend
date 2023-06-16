@@ -27,41 +27,35 @@ public class Bubble {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Number ownerId;
+    private Integer ownerId;
     private String type;
     private String otherType;
-    private Number surface;
-    private Number people;
-    private Number room;
-    private Number price;
+    private Integer surface;
+    private Integer people;
+    private Integer room;
+    private Integer price;
     private String resume;
     private String postalCode;
     private String city;
     private String address;
-    private Number longitude;
-    private Number latitude;
-    //private RentPictures[] pictures;
-    //private RentDate[]  dates;
-    //private RentActivities[] activities;
-    //private RentBonus[] bonus;
+    private Double longitude;
+    private Double latitude;
     private String iban;
     private String accountFirstname;
     private String accountLastname;
+    private String bonus;
 
-    //@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    //@JoinColumn(name = "bubble_id", referencedColumnName = "id") /* Clé étrangère */
-    //@JsonIgnoreProperties("bubble")
-    //private List<RentActivities> activities;
-
-    @OneToOne
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @JoinColumn(name = "bubble_id", referencedColumnName = "id") /* Clé étrangère */
     @JsonIgnoreProperties("bubble")
-    private RentBonus bonus;
+    private List<RentActivities> activities;
 
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     @JsonIgnoreProperties("date")
     private List<RentDate> dates;
 
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @JoinColumn(name = "bubble_id", referencedColumnName = "id") /* Clé étrangère */
     @JsonIgnoreProperties("picture")
     private List<RentPictures> pictures;
 

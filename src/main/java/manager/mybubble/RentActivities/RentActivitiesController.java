@@ -1,4 +1,5 @@
 package manager.mybubble.RentActivities;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +11,7 @@ import java.util.List;
 public class RentActivitiesController {
 
     private final RentActivitiesService rentActivitiesService;
+
 
 
     @GetMapping

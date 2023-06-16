@@ -1,4 +1,5 @@
 package manager.mybubble.RentPictures;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,7 +21,7 @@ public class RentPictures {
     private String src;
 
     @ManyToOne
-    @JsonIgnoreProperties("rentPictures")
+    @JsonIgnoreProperties("pictures")
     private Bubble bubble;
 
 }

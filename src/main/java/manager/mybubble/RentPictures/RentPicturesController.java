@@ -1,4 +1,5 @@
 package manager.mybubble.RentPictures;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

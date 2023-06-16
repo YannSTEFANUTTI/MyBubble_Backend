@@ -23,7 +23,7 @@ public class RentDate {
     private Date endDate;
 
     @ManyToOne
-    @JsonIgnoreProperties("rentDate")
+    @JsonIgnoreProperties("dates")
     private Bubble bubble;
 
 }
