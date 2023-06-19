@@ -34,6 +34,7 @@ public class Bubble {
     private Integer people;
     private Integer room;
     private Integer price;
+    @Column(length = 400) // Définit la limite max de caractères
     private String resume;
     private String postalCode;
     private String city;
