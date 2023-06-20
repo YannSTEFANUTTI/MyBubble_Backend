@@ -7,11 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import manager.mybubble.RentActivities.RentActivities;
-import manager.mybubble.RentBonus.RentBonus;
 import manager.mybubble.RentDate.RentDate;
 import manager.mybubble.RentPictures.RentPictures;
 import manager.mybubble.User.User;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashSet;
 import java.util.List;
@@ -57,7 +55,7 @@ public class Bubble {
 
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     @JoinColumn(name = "bubble_id", referencedColumnName = "id") /* Clé étrangère */
-    @JsonIgnoreProperties("picture")
+    @JsonIgnoreProperties("bubble")
     private List<RentPictures> pictures;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})

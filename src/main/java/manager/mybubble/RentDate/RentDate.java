@@ -6,8 +6,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import manager.mybubble.Bubble.Bubble;
+import manager.mybubble.User.User;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -21,9 +24,12 @@ public class RentDate {
     private Long id;
     private Date startDate;
     private Date endDate;
+    private Long residentId;
 
     @ManyToOne
     @JsonIgnoreProperties("dates")
     private Bubble bubble;
+
+
 
 }
