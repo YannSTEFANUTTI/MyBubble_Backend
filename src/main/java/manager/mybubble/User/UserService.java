@@ -18,7 +18,7 @@ public class UserService {
     }
 
     public User getById(Long id) {
-        return userRepository.findById(id);
+        return userRepository.findById(id).orElseThrow(()-> new RuntimeException(("User"+ id + "not found")));
     }
 
     public User add(User user) {
